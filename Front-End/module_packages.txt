@@ -1,0 +1,227 @@
+// npm clean cache
+npm cache clean --force
+
+// using webpack 5 + workbox + babel + async 
+@babel/core @babel/preset-env babel-loader css-loader copy-webpack-plugin html-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server webpack-merge workbox-webpack-plugin clean-webpack-plugin  --> dev
+
+// using webpack 5 + babel + reactjs
+@babel/core @babel/preset-env @babel/preset-react babel-loader clean-webpack-plugin css-loader html-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server --> dev
+react react-dom react-router-dom redux --> deps
+
+// using webpack 5 general packages
+clean-webpack-plugin copy-webpack-plugin css-loader html-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server --> dev
+
+// using webpack 4 general packages
+clean-webpack-plugin copy-webpack-plugin css-loader html-webpack-plugin@4.3.0 style-loader webpack@4.43.0 webpack-cli@3.3.12 webpack-dev-server@3.11.0 --> dev
+
+// using uglify-es
+npm install uglify-es --> deps
+
+// using eslint
+npm install eslint --> dev
+npx eslint --init
+
+// using workbox
+npm install workbox-webpack-plugin --> dev
+
+// using codeceptjs
+codeceptjs puppeteer eslint-plugin-codeceptjs --> dev
+npx codeceptjs init
+
+// using karma & jasmine
+karma-webpack karma-sourcemap-loader karma-jasmine karma-eslint karma-chrome-launcher karma jasmine-ajax jasmine-core whatwg-fetch --> dev
+
+// using karma cli
+npm install -g karma-cli
+
+// using imagemin
+npm install imagemin-webpack-plugin --> dev
+
+// imagemin plugins
+Image Type	Lossy Plugin		Lossless Plugin
+JPEG		imagemin-mozjpeg	imagemin-jpegtran
+PNG			imagemin-pngquant	imagemin-optipng
+GIF			imagemin-giflossy	imagemin-gifscale
+SVG			imagemin-svgo
+WebP		imagemin-webp
+
+// imagemin config
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+
+new ImageminWebpackPlugin({
+	plugins: [
+		ImageminMozjpeg({
+	        quality: 50,
+	        progressive: true,
+       	}),
+	],
+}),
+
+// using ffmpeg
+npm install fluent-ffmpeg --> dev
+
+// using sharp
+npm install sharp --> dev
+
+// using imagemin-webp
+npm install imagemin-webp-webpack-plugin --> dev
+
+// imagemin-webp config
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+
+new ImageminWebpWebpackPlugin({
+	config: [
+		{
+			test: /\.(jpe?g | png)/,
+			options: {
+				quality: 50
+			}
+		},
+	],
+	overrideExtension: true,
+});
+
+// using lazyload
+npm install lazysizes --> dev
+
+// lazysizes config ( type to entry point )
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+// using regenerator 
+npm install regenerator-runtime --> deps
+
+// using bundler analyzer
+npm install webpack-bundle-analyzer --> dev
+
+// bundler analyzer config
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+new BundleAnalyzerPlugin(),
+
+// using lit-element/lit-element-router
+npm install lit-element lit-element-router --> deps
+
+// webpack.common.js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle-data.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                    },
+                ],
+            },
+        ],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/index.html'),
+            filename: 'index.html',
+        }),
+	    new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/public/'),
+                    to: path.resolve(__dirname, 'dist/'),
+                },
+            ],
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.resolve(__dirname, 'src/scripts/sw.js'),
+        }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            swDest: 'sw.js',
+            clientsClaim: true,
+            skipWaiting: true,
+            runtimeCaching: [
+                {
+                    urlPattern: /\.(?:png|jpg|jpeg|webp|gif|svg)$/,
+                    handler: '',
+                    options: {
+                        cacheName: '',
+                        expiration: {
+                            maxEntries: ,
+                            maxAgeSeconds: ,
+                        },
+                    },
+                },
+                {
+                    urlPattern: new RegExp(''),
+                    handler: '',
+                },
+            ]
+        }),
+        new CleanWebpackPlugin(),
+    ],
+};
+
+
+// webpack.dev.js
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const path = require('path');
+
+module.exports = merge(common, {
+    mode: 'development',
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+    },
+});
+
+
+// webpack.prod.js
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    mode: 'production',
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env'],
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+});
+
+
+// package.json config includes webpack 5 + codecepts + jasmine 
+"scripts": {
+    "dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "karma start",
+    "e2e": "codeceptjs run --steps",
+},
+
+// package.json config includes webpack 5 general
+"scripts": {
+    "dev": "webpack serve --mode=development",
+    "build": "webpack --mode=production"
+},

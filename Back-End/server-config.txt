@@ -1,0 +1,86 @@
+-- ubuntu --
+touch .env --> create file .env
+vim .env --> edit file .env
+:wq --> exit from vim
+
+-- linux ------------------------------------------------------------------------------------
+sudo yum update -y --> software update
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2 --> install php & mariadb
+sudo yum install -y httpd --> install web server apache
+sudo systemctl start httpd --> start web server
+sudo systemctl enable httpd --> add config to run while system boot
+sudo groupadd www --> add group www
+sudo usermod -a -G www ec2-user --> add ec2 user to www
+sudo chgrp -R www /var/www --> change group ownership
+
+-- change permission --
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} +
+find /var/www -type f -exec sudo chmod 0664 {} +
+------------------------
+cd /var/www 
+mkdir inc --> make directory inc
+
+-- set db config --
+cd inc
+>file.inc --> create new file
+nano file.inc --> edit file
+
+-- set php code --
+cd /var/www/html
+>file.php --> create new file
+nano file.php --> edit file
+
+-- ssh to ec2 --
+ssh ec2-user@privateIP --> use IP
+ssh -i file.ext ec2-user@privateIP --> use IP & key pair
+
+-- create file --
+nano file.ext
+
+-- change file permission --
+chmod 400 file.ext
+
+---------------------------------------------------------------------------------------------
+
+// set up tool
+-- PM2 --
+sudo npm install pm2 -g
+npm i -g pm2
+pm2 start npm --name "" -- run "start" --> set start name and option
+pm2 restart names
+pm2 stop names
+pm2 start name
+pm2 logs
+
+-- NVM --
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+nvm install (npm version)
+
+-- NodeJS --
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+
+-- Nginx --
+sudo apt install nginx -y
+sudo apt install python3-certbot-nginx -y
+sudo certbot --nginx -d <yourdomain.com> -d <www.yourdomain.com>
+/etc/nginx/sites-available/default --> nginx config file
+
+-- Nginx Config --
+location /path {
+	proxy_pass http://localhost:5000;
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection 'upgrade';
+	proxy_set_header Host $host;
+	proxy_cache_bypass $http_upgrade;
+
+	limit_req zone=one;
+}
+
+limit_req_zone $binary_remote_addr zone=one:10m rate=30r/m;
+
+server_name <your domain A> <your domain B>;
+require('crypto').randomBytes(64).toString('hex');

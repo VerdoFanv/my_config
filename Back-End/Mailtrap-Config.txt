@@ -1,0 +1,7 @@
+-- Mailtrap --
+host=smtp.mailtrap.io
+port=2525
+username=da646eb4eb0678
+password=55e8adf287b1bd
+
+email=76d83c5f06-75c1ab@inbox.mailtrap.io

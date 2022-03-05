@@ -1,0 +1,106 @@
+Library List
+
+-- Html --
+html-loader 
+html-webpack-plugin
+
+-- End To End Tester -- 
+codeceptjs 
+puppeteer 
+eslint-plugin-codeceptjs
+
+-- Css --
+css-loader
+style-loader
+
+-- Css Framework --
+bootstrap@next
+materialize-css@next
+@material-ui/core
+@popperjs/core
+@fortawesome/fontawesome-free
+semantic-ui
+bulma
+skeleton-css
+tailwindcss
+antd
+
+-- Css With Javascript --
+@emotion/css
+
+-- Javascript Framework --
+create-react-app app-name
+vue
+@angular/cli
+ember-cli
+jquery
+axios
+
+-- Javascript Converter -- 
+@babel/core
+@babel/preset-env
+@babel/preset-react
+babel-loader
+
+-- Javascript Linter --
+uglify-es
+eslint
+
+-- Javascript Debugger --
+karma-webpack 
+karma-sourcemap-loader 
+karma-jasmine 
+karma-eslint 
+karma-chrome-launcher 
+karma-firefox-launcher
+karma 
+jasmine-ajax 
+jasmine-core 
+whatwg-fetch
+
+-- Javascript Asynchronous Handle --
+regenerator-runtime
+
+-- Caching --
+serviceworker-webpack-plugin
+workbox-webpack-plugin
+
+-- Nosql Database --
+idb
+mongodb --> install it on site page
+
+-- Lazy Load --
+lazysizes
+
+-- Bundler Analyzer --
+webpack-bundle-analyzer
+
+-- Web Component --
+lit-element
+lit-element-router
+
+-- Webpack -- 
+webpack 
+webpack-cli 
+webpack-dev-server 
+webpack-merge 
+clean-webpack-plugin
+copy-webpack-plugin
+
+-- Image Compression --
+imagemin-webpack-plugin
+imagemin-mozjpeg
+imagemin-pngquant
+imagemin-giflossy
+imagemin-svgo
+imagemin-webp
+imagemin-jpegtran
+imagemin-optipng
+imagemin-gifscale
+imagemin-webp-webpack-plugin
+
+-- Video Compression --
+fluent-ffmpeg
+
+-- Responsive Image --
+sharp

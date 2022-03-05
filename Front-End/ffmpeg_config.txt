@@ -1,0 +1,15 @@
+const path = require('path');
+const FFmpeg = require('fluent-ffmpeg');
+
+const gify = new FFmpeg({ source: path.resolve(__dirname, '')});
+
+gify.clone()
+	.withVideoCodec('libx264')
+	.withFps(30)
+	.toFormat('mp4')
+	.saveToFile(path.resolve(__dirname, ''));
+
+gify.clone()
+	.withFps(30)
+	.toFormat('webm')
+	.saveToFile(path.resolve(__dirname, ''));

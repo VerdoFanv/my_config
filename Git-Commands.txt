@@ -1,0 +1,26 @@
+-- Git Commands --
+
+-- login --
+git config --global user.name 'your name'
+git config --global user.email 'you@example.com'
+
+-- branch --
+git branch
+git branch -d <localBranchName>
+git checkout -b <branch name>
+git push origin --delete <remoteBranchName>
+
+-- init --
+git init
+git add .
+git commit -m 'your commit'
+
+-- remote --
+git remote add origin <remote repo url>
+git remote -v
+git remote rm <remote name>
+
+-- update, clone and upload --
+git push origin master
+git clone <remote repo url>
+git pull origin master
