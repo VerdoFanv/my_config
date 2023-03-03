@@ -1,4 +1,6 @@
-# Eslint env using Jasmine + Codeceptjs
+# Eslint JSON Example
+
+## Front End CodeceptJS & Jasmine
 ```json
 "env": {
     "jasmine": true,
@@ -35,5 +37,63 @@
     "arrow-body-style": 0,
     "no-unneeded-ternary": 0,
     "camelcase": 0
+}
+```
+
+## NODEJS API
+
+```json
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["warn", 2],
+    "semi": ["never"],
+    "no-unused-vars": 1,
+    "no-console": 0,
+    "import/prefer-default-export": 0,
+    "consistent-return": 0,
+    "radix": 0,
+    "no-param-reassign": 0,
+    "no-restricted-syntax": 0,
+    "eqeqeq": 0,
+    "import/extensions": 0,
+    "camelcase": 0,
+    "func-names": 0,
+    "no-use-before-define": 0,
+    "arrow-body-style": 0,
+    "prefer-const": 1,
+    "space-before-blocks": 1,
+    "space-infix-ops": 1,
+    "no-trailing-spaces": 1,
+    "keyword-spacing": 1,
+    "no-multi-spaces": [
+      1,
+      {
+        "exceptions": {
+          "Property": false
+        }
+      }
+    ],
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 1
+      }
+    ],
+    "no-tabs": 0,
+    "no-plusplus": 0,
+    "no-nested-ternary": 0,
+    "no-cond-assign": 0,
+    "linebreak-style": 0
+  }
 }
 ```
