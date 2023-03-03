@@ -50,15 +50,22 @@ npm i -g pm2
 pm2 start npm --name "" -- run "start" --> set start name and option
 pm2 restart names
 pm2 stop names
+pm2 stop all
 pm2 start name
 pm2 logs
+pm2 kill
+pm2 list
+pm2 status 
 
 -- NVM --
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 nvm install (npm version)
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 -- NodeJS --
-curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install nodejs
 
@@ -66,10 +73,12 @@ sudo apt install nodejs
 sudo apt install nginx -y
 sudo apt install python3-certbot-nginx -y
 sudo certbot --nginx -d <yourdomain.com> -d <www.yourdomain.com>
-/etc/nginx/sites-available/default --> nginx config file
+/etc/nginx/sites-available/default --> default nginx config file
 
 -- Nginx Config --
-location /path {
+server_name <your domain A> <www.your domain B>;
+
+location / {
 	proxy_pass http://localhost:5000;
 	proxy_http_version 1.1;
 	proxy_set_header Upgrade $http_upgrade;
@@ -82,5 +91,5 @@ location /path {
 
 limit_req_zone $binary_remote_addr zone=one:10m rate=30r/m;
 
-server_name <your domain A> <your domain B>;
 require('crypto').randomBytes(64).toString('hex');
+ssh-keygen -t rsa -b 4096 -m PEM -f jwtRS256.key

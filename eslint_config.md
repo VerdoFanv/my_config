@@ -1,4 +1,5 @@
-// eslint env using jasmine + codeceptjs
+# Eslint env using Jasmine + Codeceptjs
+```json
 "env": {
     "jasmine": true,
     "codeceptjs/codeceptjs": true
@@ -6,8 +7,6 @@
 "extends": [
     "plugin:codeceptjs/recommended"
 ],
-
-// eslint my custom config
 "rules": {
     "indent": ["warn", 2],
     "import/no-extraneous-dependencies": 0,
@@ -37,3 +36,4 @@
     "no-unneeded-ternary": 0,
     "camelcase": 0
 }
+```
