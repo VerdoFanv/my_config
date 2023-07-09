@@ -1,59 +1,65 @@
 # Library recomendation
 
-- @invertase/react-native-apple-authentication
-- @react-native-clipboard/clipboard
-- @react-native-community/datetimepicker
+# React Native Community
 - @react-native-community/geolocation
+- @react-native-community/netinfo
+- @react-native-community/checkbox
+
+# React Native Firebase
 - @react-native-firebase/analytics
 - @react-native-firebase/app
 - @react-native-firebase/auth
-- @react-native-firebase/dynamic-links
-- @react-native-google-signin/google-signin
-- @react-native-picker/picker
-- moment
-- prop-types
-- react-native-auto-height-image
-- react-native-autoheight-webview
-- react-native-background-timer
-- react-native-code-push
-- react-native-config
-- react-native-fbsdk-next
-- react-native-gesture-handler
-- react-native-image-picker
-- react-native-linear-gradient
-- react-native-maps
-- react-native-maps-directions
-- react-native-modal
-- react-native-modal-datetime-picker
-- react-native-onesignal
-- react-native-parsed-text
-- react-native-permissions
-- react-native-reanimated
-- react-native-safe-area-context
-- react-native-screens
-- react-native-share
-- react-native-splash-screen
-- react-native-swiper
-- react-native-vector-icons
-- react-native-vision-camera
-- react-native-webview
-- react-navigation
-- react-navigation-drawer
-- react-navigation-stack
-- react-navigation-tabs
-- rn-fetch-blob
+
+# React Navigation
 - @react-navigation/bottom-tabs
 - @react-navigation/drawer
 - @react-navigation/native
 - @react-navigation/native-stack
 - @react-navigation/stack
-- @hookform/resolvers
-- @react-native-community/netinfo
+- react-native-gesture-handler
+- react-native-safe-area-context
+- react-native-screens
+
+# Location & Google Maps
+- react-native-maps
+- react-native-maps-directions
+- react-native-get-location
+
+# React Redux
+- react-redux
+- redux
+- redux-persist
+- redux-thunk
+- redux-logger
 - @reduxjs/toolkit
-- axios
-- dayjs
-- intl
-- jwt-decode
+- @react-native-async-storage/async-storage
+
+# Standalone
+- @invertase/react-native-apple-authentication
+- @react-native-clipboard/clipboard
+- react-native-date-picker
+- @react-native-google-signin/google-signin
+- @react-native-picker/picker
+- react-native-responsive-image-view
+- react-native-autoheight-webview
+- react-native-code-push
+- react-native-config
+- react-native-fbsdk-next
+- react-native-image-picker
+- react-native-linear-gradient
+- react-native-modal
+- react-native-onesignal
+- @jerryu/react-native-parsed-text
+- react-native-permissions
+- react-native-reanimated
+- react-native-share
+- react-native-splash-screen
+- react-native-swiper-flatlist
+- react-native-vector-icons
+- react-native-vision-camera
+- react-native-webview
+- rn-fetch-blob
+- react-native-haptic-feedback
 - react-hook-form
 - react-native-bootsplash
 - react-native-image-crop-picker
@@ -63,23 +69,15 @@
 - react-native-simple-radio-button
 - react-native-simple-toast
 - react-native-svg
+- react-native-svg-transformer
 - react-native-tab-view
-- react-redux
-- redux
-- redux-persist
-- redux-thunk
-- redux-logger
+- react-native-render-html
 - yup
 - yup-phone
 - react-native-actions-sheet
-- @react-native-community/checkbox
 - @react-native-masked-view/masked-view
-- @apollo/react-hooks
-- apollo-client
 - @openspacelabs/react-native-zoomable-view
-- @react-native-async-storage/async-storage
 - react-native-dropdownalert
-- react-native-get-location
 - react-native-google-places-autocomplete
 - react-native-loading-spinner-overlay
 - react-native-localize
