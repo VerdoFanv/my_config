@@ -10,7 +10,15 @@
 - ```@unique```
   > define unique value
 - ```@db```
-  > define custom byte data type
+  > define custom byte data type (VarChar, SmallInt)
+- ```@@index()```
+  > add field to indexed it for optimize find many
+- ```@@map()```
+  > custom table name
+- ```@default()```
+  > set default value for field (uuid, now)
+- ```@updatedAt```
+  > set type column to update at
 - ```js
   @relation(fields: [userId], references: [id], onDelete: Cascade | NoAction, onUpdate: Cascade | NoAction)
   ```
@@ -27,7 +35,7 @@
 - Json
 
 ## model queries
-- options on any query = where | select | include
+- options on any query = where | select | include | orderBy | take | skip
 - findUnique --> retrive single data
 - findFirst --> retrive single first data
 - findMany --> retreive many data
@@ -36,6 +44,7 @@
 - updateMany --> update many data
 - delete --> delete data from db
 - deleteMany --> delete all data from table
+- upsert --> update & insert data
 - count --> retrieve data count
 - $transaction([]) --> runs multiple prisma commands
 
