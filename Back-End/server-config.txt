@@ -45,17 +45,14 @@ chmod 400 file.ext
 
 // set up tool
 -- PM2 --
-sudo npm install pm2 -g
-npm i -g pm2
-pm2 start npm --name "" -- run "start" --> set start name and option
-pm2 restart names
-pm2 stop names
-pm2 stop all
-pm2 start name
-pm2 logs
-pm2 kill
+pm2 start npm --name "" -- run "start"
+pm2 restart <name | all | id>
+pm2 stop <name | all | id>
+pm2 logs <name | id>
 pm2 list
-pm2 status 
+pm2 monit
+pm2 startup
+pm2 save
 
 -- NVM --
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
@@ -63,11 +60,6 @@ nvm install (npm version)
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
--- NodeJS --
-curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt install nodejs
 
 -- Nginx --
 sudo apt install nginx -y
