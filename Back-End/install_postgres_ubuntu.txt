@@ -7,10 +7,11 @@ sudo systemctl status postgresql
 sudo -u postgres psql
 ALTER USER postgres PASSWORD 'demoPassword';
 
-nano /etc/postgresql/15/main/postgresql.conf
-search listen_addresses = '*'
+nano /etc/postgresql/16/main/postgresql.conf
+search |CONNECTION AND AUTHENTICATION| and replace with
+listen_addresses = '*'
 
-nano /etc/postgresql/15/main/pg_hba.conf
+nano /etc/postgresql/16/main/pg_hba.conf
 search line (ipv4 local connections) replace with ip
 sudo ufw allow 5432/tcp
 sudo systemctl restart postgresql

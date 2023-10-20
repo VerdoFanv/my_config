@@ -27,7 +27,7 @@ truncate <table name>; --> delete all table records
 drop schema public cascade; --> drop all table in public schema
 create schema public authorization postgres; --> create public schema to some user
 pg_dump -U <username> -h localhost -d <dbname> -f <file.sql>
-pg_restore -U <username> -h localhost -d <dbname> -l <file.sql>
+psql -U <username> -h localhost -d <dbname> -f <file.sql>
 psql -h <hostname> -U <username>
 pg_ctl -D "E:\PostgreSQL\12\data" -l logfile start --> start server
 alter system set jit=off;
