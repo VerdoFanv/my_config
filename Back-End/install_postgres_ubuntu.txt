@@ -12,6 +12,6 @@ search |CONNECTION AND AUTHENTICATION| and replace with
 listen_addresses = '*'
 
 nano /etc/postgresql/16/main/pg_hba.conf
-search line (ipv4 local connections) replace with ip
+search line (ipv4 local connections) replace ip to 0.0.0.0/0
 sudo ufw allow 5432/tcp
 sudo systemctl restart postgresql
