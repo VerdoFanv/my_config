@@ -1,4 +1,5 @@
--- Linux Commands --
+# -- Linux Commands --
+```
 pwd --> show now directory
 man [command_name] 
 cd
@@ -37,3 +38,4 @@ systemctl [enable --> enable on boot] || [start --> run it]
 groupadd [group_name]
 usermod [option] [group_name] [user_name] --> [4 == read || 2 == write || 1 == execute || 0 == block read, write, exe]
 chgrp [group_name] [file_name]
+```

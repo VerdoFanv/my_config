@@ -1,3 +1,7 @@
+# NODEJS
+
+## INSTALL in ubuntu
+```
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
 sudo mkdir -p /etc/apt/keyrings
@@ -8,3 +12,11 @@ echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.co
 
 sudo apt-get update
 sudo apt-get install nodejs -y
+```
+
+## Error: Permission denied
+- ```npm config set user 0```
+- ```npm config set unsafe-perm true```
+
+## Clean cache
+- ```npm cache clean --force```

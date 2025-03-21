@@ -1,6 +1,0 @@
-Error: Permission denied
-- npm config set user 0
-- npm config set unsafe-perm true
-
-Clean cache
-- npm cache clean --force
