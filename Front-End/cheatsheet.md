@@ -13,3 +13,6 @@
 
 ## cara fix svg tidak bisa animasi di safari
 - update lib dan cek kembali element
+
+## cara atasi memory nextjs saat run dev kurang
+- NODE_OPTIONS='--max-old-space-size=4096' npm run dev
