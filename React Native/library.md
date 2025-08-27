@@ -1,9 +1,9 @@
 # Library recomendation
 
-# React Native Community
-- @react-native-community/geolocation
-- @react-native-community/netinfo
-- @react-native-community/checkbox
+# React Native Community (update)
+- @react-native-geolocation-service/geolocation
+- @react-native-netinfo/netinfo
+- @react-native-checkbox/checkbox
 
 # React Native Firebase
 - @react-native-firebase/analytics
@@ -22,7 +22,7 @@
 
 # Location & Google Maps
 - react-native-maps
-- react-native-maps-directions
+- @react-native-maps/directions
 - react-native-get-location
 
 # React Redux
@@ -34,7 +34,7 @@
 - @reduxjs/toolkit
 - @react-native-async-storage/async-storage
 
-# Standalone
+# Standalone (update)
 - @invertase/react-native-apple-authentication
 - @react-native-clipboard/clipboard
 - react-native-date-picker
@@ -42,7 +42,7 @@
 - @react-native-picker/picker
 - react-native-responsive-image-view
 - react-native-autoheight-webview
-- react-native-code-push
+- @microsoft/code-push
 - react-native-config
 - react-native-fbsdk-next
 - react-native-image-picker
@@ -58,7 +58,7 @@
 - react-native-vector-icons
 - react-native-vision-camera
 - react-native-webview
-- rn-fetch-blob
+- react-native-blob-util
 - react-native-haptic-feedback
 - react-hook-form
 - react-native-bootsplash
