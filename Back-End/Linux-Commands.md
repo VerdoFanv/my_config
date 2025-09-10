@@ -117,4 +117,11 @@ tar -tf <file.tar> <directory>
 tar -xf <file.tar> <directory>
 tar -czf arsip.tar.gz /etc
 tar -xzf arsip.tar.gz
+
+zip -r filename.zip file_or_folder
+```
+
+## download file/folder to local computer
+```
+scp root@server_ip:full_path_to_folder_or_file .
 ```
