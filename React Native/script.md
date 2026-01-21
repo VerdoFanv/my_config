@@ -55,3 +55,6 @@
 
 # Init EXPO
 ```npx create-expo-app MyApp```
+
+# SDK PLATFORM VERSION ANDROID
+```./gradlew :app:properties | grep -i "sdk"```
