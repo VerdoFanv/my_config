@@ -58,3 +58,6 @@
 
 # SDK PLATFORM VERSION ANDROID
 ```./gradlew :app:properties | grep -i "sdk"```
+
+# CLEAN PROJECT UNUSED
+```rm -rf node_modules android/app/build ios/build```
