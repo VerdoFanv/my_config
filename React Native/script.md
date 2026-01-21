@@ -60,7 +60,7 @@
 ```./gradlew :app:properties | grep -i "sdk"```
 
 # CLEAN PROJECT UNUSED
-```rm -rf node_modules android/app/build ios/build```
+```rm -rf node_modules android/app/build ios/build ios/Pods```
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
 ```
