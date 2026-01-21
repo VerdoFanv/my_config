@@ -32,8 +32,8 @@
   "android": "expo run:android && cd android && ./gradlew --stop && cd ..",
   "android:sync": "npx expo prebuild --platform android --clean",
   "android:release": "expo run:android --variant release && cd android && ./gradlew --stop && cd ..",
-  "android:aab": "cd android/app && rm -rf build && cd .. && ./gradlew app:bundleRelease && ./gradlew --stop && cd ..",
-  "android:apk": "eas build -p android --profile preview --local && cd android && ./gradlew --stop && cd ..",
+  "android:aab": "cd android && ./gradlew clean && ./gradlew app:bundleRelease && ./gradlew --stop && cd ..",
+  "android:apk": "cd android && ./gradlew clean && ./gradlew app:assembleRelease && ./gradlew --stop && cd ..",
   "ios": "expo run:ios",
   "ios:sync": "npx expo prebuild --platform ios --clean && cd ios && pod install && cd ..",
   "ios:release": "expo run:ios --configuration Release"
