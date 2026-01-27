@@ -65,5 +65,5 @@
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
 ```
-rm -rf android/app/build android/build android/app/.cxx && cd android && ./gradlew clean && cd ..
+rm -rf android/app/build android/build android/app/.cxx node_modules/.cache && cd android && ./gradlew clean && cd ..
 ```
