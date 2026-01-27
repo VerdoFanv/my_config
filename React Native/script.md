@@ -67,6 +67,6 @@
 ```
 rm -rf android/app/build android/build android/app/.cxx
 rm -rf node_modules/.cache
-cd android && ./gradlew clean
+cd android && ./gradlew clean && cd ..
 npx expo prebuild --clean --platform android
 ```
