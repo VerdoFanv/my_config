@@ -57,6 +57,36 @@
 # Init EXPO
 ```npx create-expo-app MyApp```
 
+# ANDROID GRADLE SETUP
+```
+release {
+    if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+        storeFile file(MYAPP_RELEASE_STORE_FILE)
+        storePassword MYAPP_RELEASE_STORE_PASSWORD
+        keyAlias MYAPP_RELEASE_KEY_ALIAS
+        keyPassword MYAPP_RELEASE_KEY_PASSWORD
+    }
+}
+
+signingConfig signingConfigs.release
+
+MYAPP_RELEASE_STORE_FILE=my-release-key.jks
+MYAPP_RELEASE_KEY_ALIAS=my-release-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=
+MYAPP_RELEASE_KEY_PASSWORD=
+
+org.gradle.jvmargs=-Xmx4048m -XX:MaxMetaspaceSize=1024m
+
+splits {
+  abi {
+    enable true
+    reset()
+    include 'armeabi-v7a', 'arm64-v8a'
+    universalApk true
+  }
+}
+```
+
 # SDK PLATFORM VERSION ANDROID
 ```./gradlew :app:properties | grep -i "sdk"```
 
