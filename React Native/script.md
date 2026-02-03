@@ -75,7 +75,7 @@ MYAPP_RELEASE_KEY_ALIAS=my-release-key-alias
 MYAPP_RELEASE_STORE_PASSWORD=
 MYAPP_RELEASE_KEY_PASSWORD=
 
-org.gradle.jvmargs=-Xmx3g -XX:MaxMetaspaceSize=512m -XX:+UseG1GC
+org.gradle.jvmargs=-Xmx3g -XX:MaxMetaspaceSize=512m
 
 splits {
   abi {
