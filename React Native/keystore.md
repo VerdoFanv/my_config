@@ -5,7 +5,7 @@
   > for Mac
 
 # check information keystore file
-- ```keytool -list -v -keystore android/app/my-release-key.keystore -alias my-release-key-alias```
+- ```keytool -list -v -keystore android/app/my-release-key.jks -alias my-release-key-alias```
 
 # create .pem certificate file
 - ```keytool -export -rfc -keystore upload-keystore.jks -alias upload -file upload_certificate.pem```
