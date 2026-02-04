@@ -8,7 +8,7 @@
       "namespace": "android_app",
       "package_name": "com.example.app",
       "sha256_cert_fingerprints": [
-        "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99:AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99"
+        ""
       ]
     }
   }
@@ -23,7 +23,7 @@
     "details": [
       {
         "appID": "TEAMID.com.example.app",
-        "paths": [ "/path/*", "/anotherpath/*" ]
+        "paths": [ "" ]
       }
     ]
   }
