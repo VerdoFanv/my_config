@@ -1,4 +1,4 @@
-# ./well-known includes 2 file
+# ./well-known place at root route
 ## ANDROID (assetlinks.json)
 ```
 [
