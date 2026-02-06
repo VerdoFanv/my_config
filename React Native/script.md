@@ -78,12 +78,12 @@ MYAPP_RELEASE_KEY_PASSWORD=
 org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1024m
 
 splits {
-  abi {
-    enable true
-    reset()
-    include 'armeabi-v7a', 'arm64-v8a'
-    universalApk true
-  }
+    abi {
+        enable true
+        reset()
+        include 'armeabi-v7a', 'arm64-v8a'
+        universalApk true
+    }
 }
 ```
 
