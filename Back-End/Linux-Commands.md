@@ -121,7 +121,10 @@ tar -xzf arsip.tar.gz
 zip -r filename.zip file_or_folder
 ```
 
-## download file/folder to local computer
+## download & upload file/folder to local computer
 ```
 scp root@server_ip:full_path_to_folder_or_file .
+```
+```
+rsync -avz ./build/ root@IP:/var/www/vhosts/
 ```
