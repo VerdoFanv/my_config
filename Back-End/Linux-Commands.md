@@ -119,6 +119,7 @@ tar -czf arsip.tar.gz /etc
 tar -xzf arsip.tar.gz
 
 zip -r filename.zip file_or_folder
+unzip filename.zip
 ```
 
 ## download & upload file/folder to local computer
