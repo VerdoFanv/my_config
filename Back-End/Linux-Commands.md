@@ -129,3 +129,10 @@ scp root@server_ip:full_path_to_folder_or_file .
 ```
 rsync -avz ./build/ root@IP:/var/www/vhosts/
 ```
+
+## TROUBLE IN SERVER
+```
+du -h --max-depth=1 / 2>/dev/null | sort -hr
+du -sh /var/www/vhosts/* | sort -h
+du -sh /root/.[!.]* | sort -h
+```
