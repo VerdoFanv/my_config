@@ -134,5 +134,5 @@ rsync -avz ./build/ root@IP:/var/www/vhosts/
 ```
 du -h --max-depth=1 / 2>/dev/null | sort -hr
 du -sh /var/www/vhosts/* | sort -h
-du -sh /root/.[!.]* | sort -h
+du -ah --max-depth=1 | sort -h
 ```
