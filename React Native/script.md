@@ -94,8 +94,18 @@ splits {
 ```
 rm -rf node_modules android/app/build ios/build ios/Pods
 
-rm -rf ~/Library/Developer/Xcode/DerivedData/* && rm -rf ~/Library/Developer/Xcode/Archives/* && xcrun simctl delete unavailable
-rm -rf ~/.gradle/caches && rm -rf ~/Library/Caches/Google/AndroidStudio* && rm -rf ~/.android/avd/*.avd/*.img && rm -rf ~/.android/avd/*.avd/snapshots
+rm -rf \
+  "$HOME/Library/Caches/Google/AndroidStudio"* \
+  "$HOME/Library/Logs/Google/AndroidStudio"* \
+  "$HOME/.gradle/caches" \
+  "$HOME/.android/build-cache" \
+  "$HOME/.android/cache"
+
+rm -rf \
+  "$HOME/Library/Developer/Xcode/DerivedData" \
+  "$HOME/Library/Developer/Xcode/Archives" \
+  "$HOME/Library/Developer/Xcode/iOS DeviceSupport" \
+  "$HOME/Library/Caches/com.apple.dt.Xcode"
 ```
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
