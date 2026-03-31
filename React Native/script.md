@@ -100,12 +100,21 @@ rm -rf \
   "$HOME/.gradle/caches" \
   "$HOME/.android/build-cache" \
   "$HOME/.android/cache"
+emulator -list-avds
+avdmanager delete avd -n "NAMA_AVD"
 
 rm -rf \
   "$HOME/Library/Developer/Xcode/DerivedData" \
   "$HOME/Library/Developer/Xcode/Archives" \
   "$HOME/Library/Developer/Xcode/iOS DeviceSupport" \
   "$HOME/Library/Caches/com.apple.dt.Xcode"
+xcrun simctl delete unavailable
+
+find "$HOME/Project" -type d \( -name node_modules -o -name .next \) -prune -exec rm -rf {} +
+npm cache clean --force
+yarn cache clean
+brew cleanup
+brew autoremove
 ```
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
