@@ -91,7 +91,12 @@ splits {
 ```./gradlew :app:properties | grep -i "sdk"```
 
 # CLEAN PROJECT UNUSED
-```rm -rf node_modules android/app/build ios/build ios/Pods```
+```
+rm -rf node_modules android/app/build ios/build ios/Pods
+
+rm -rf ~/Library/Developer/Xcode/DerivedData/* && rm -rf ~/Library/Developer/Xcode/Archives/* && xcrun simctl delete unavailable
+rm -rf ~/.gradle/caches && rm -rf ~/Library/Caches/Google/AndroidStudio* && rm -rf ~/.android/avd/*.avd/*.img && rm -rf ~/.android/avd/*.avd/snapshots
+```
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
 ```
