@@ -143,3 +143,15 @@ sudo apt-get clean
 sudo apt-get autoremove --purge
 sudo journalctl --vacuum-time=2d
 ```
+
+## DISABLED CORE DUMP FILE FROM PM2
+```
+cat /proc/[PID]/limits | grep "Max core file size"
+sudo systemctl edit pm2-root.service --full
+
+--tambahkan/replace ini di [SERVICE]--
+LimitCORE=0
+----
+sudo systemctl daemon-reload
+sudo systemctl restart pm2-root
+```
