@@ -137,6 +137,7 @@ du -sh /var/www/vhosts/* | sort -h
 du -ah --max-depth=1 | sort -h
 ----------------------------
 pm2 flush
+pm2 restart [nama_aplikasi] --max-memory-restart 1G
 rm -rf /root/.vscode-server /root/.cursor-server /root/.npm /root/.cache
 snap list --all | awk '/disabled/{print $1, $3}' | while read snapname revision; do snap remove "$snapname" --revision="$revision"; done
 sudo apt-get clean
