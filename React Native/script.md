@@ -94,9 +94,10 @@ splits {
 ```
 rm -rf node_modules android/app/build ios/build ios/Pods
 
-rm -rf "$HOME/.gradle/caches"
-rm -rf "$HOME/.android/build-cache"
-rm -rf "$HOME/.android/cache"
+rm -rf \
+  "$HOME/.gradle/caches" \
+  "$HOME/.android/build-cache" \
+  "$HOME/.android/cache"
 emulator -list-avds
 avdmanager delete avd -n "NAMA_AVD"
 
