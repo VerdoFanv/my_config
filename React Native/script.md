@@ -94,12 +94,6 @@ splits {
 ```
 rm -rf node_modules android/app/build ios/build ios/Pods
 
-# Hapus cache Android Studio (Abaikan jika error tidak ketemu)
-rm -rf "$HOME/Library/Caches/Google/AndroidStudio"* 2>/dev/null || true
-rm -rf "$HOME/Library/Logs/Google/AndroidStudio"* 2>/dev/null || true
-rm -rf "$HOME/Library/Caches/AndroidStudio"* 2>/dev/null || true
-
-# Hapus cache Gradle dan Android (Pasti berhasil selama foldernya ada)
 rm -rf "$HOME/.gradle/caches"
 rm -rf "$HOME/.android/build-cache"
 rm -rf "$HOME/.android/cache"
