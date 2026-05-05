@@ -110,6 +110,8 @@ xcrun simctl delete unavailable
 
 find "$HOME/Project" -type d \( -name node_modules -o -name .next \) -prune -exec rm -rf {} +
 npm cache clean --force
+rm -rf ~/.npm/_npx
+pod cache clean --all
 yarn cache clean
 brew cleanup
 brew autoremove
