@@ -92,7 +92,7 @@ splits {
 
 # CLEAN PROJECT UNUSED
 ```
-rm -rf node_modules android/app/build ios/build ios/Pods
+rm -rf node_modules android/app/build ios/build ios/Pods && watchman watch-del-all
 
 rm -rf \
   "$HOME/.gradle/caches" \
