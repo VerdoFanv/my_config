@@ -156,3 +156,10 @@ LimitCORE=0
 sudo systemctl daemon-reload
 sudo systemctl restart pm2-root
 ```
+
+## REACT EMAIL PROBLEM ERROR
+```
+check /Users/verdofanv/.pnp.cjs (warning node and yarn conflict)
+mv ~/.pnp.cjs ~/.pnp.cjs.disabled
+rm -rf .react-email
+```
