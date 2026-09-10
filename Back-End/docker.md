@@ -13,6 +13,7 @@ docker compose up -d
 docker compose down
 docker compose down -v
 docker compose logs -f <service_name>
+docker compose stop
 
 docker ps -a
 docker logs -f <container_name>
