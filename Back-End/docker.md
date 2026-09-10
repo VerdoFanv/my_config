@@ -71,3 +71,9 @@ sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo chown $USER:$USER ~/.kube/config
 chmod 600 ~/.kube/config
 ```
+
+## K3s COMMAND
+```
+sudo k3s kubectl get pods -A
+sudo k3s kubectl logs <nama-pod> -n <nama-namespace>
+```
