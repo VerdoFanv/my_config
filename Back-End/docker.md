@@ -24,4 +24,7 @@ docker restart <container_name>
 
 docker system prune
 docker stats
+docker volume ls
+
+docker compose exec -T <service_name> sh -c 'cd /app && tar czf - uploads' > uploads.tgz
 ```
