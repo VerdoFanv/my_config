@@ -63,3 +63,11 @@ docker buildx version
 echo 'export DOCKER_BUILDKIT=1' >> ~/.bashrc
 source ~/.bashrc
 ```
+
+## SETUP K3s NO PASS
+```
+mkdir -p ~/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown $USER:$USER ~/.kube/config
+chmod 600 ~/.kube/config
+```
