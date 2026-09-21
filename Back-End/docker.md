@@ -8,6 +8,7 @@ sudo sh get-docker.sh
 ## COMMAND
 ```
 docker compose up --build -d
+docker compose up --force-recreate -d
 docker compose up -d
 
 docker compose down
