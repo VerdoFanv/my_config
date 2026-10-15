@@ -169,3 +169,14 @@ rm -rf .react-email
 mysql -h HOST -P PORT -uroot -pPASSWORD DATABASE_NAME < dev.sql
 mysqldump -h HOST -P PORT -uroot -proot DATABASE_NAME > dev.sql
 ```
+
+## GO COMMAND
+```
+du -sh "$(go env GOMODCACHE)"
+du -sh "$(go env GOCACHE)"
+du -sh "$(go env GOPATH)/bin" 2>/dev/null
+
+go clean -modcache
+go clean -cache
+go clean -testcache
+```
