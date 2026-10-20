@@ -1,13 +1,11 @@
 # Personal Engineering Standards
 
-Before starting any software engineering task, read the complete `PERSONAL_ENGINEERING_STANDARDS.md` file in this workspace root.
+Before starting any software engineering task, check whether `PERSONAL_ENGINEERING_STANDARDS.md` exists in the workspace root.
 
-Follow its engineering principles, planning and approval workflow, implementation boundaries, validation requirements, and reporting standards.
+- **If the file exists:** Read the complete document and follow its applicable rules throughout the task.
+- **If the file does not exist:** Continue working normally using professional engineering judgment, applicable project instructions, and established repository conventions. Do not block the task or ask me to provide the missing file.
+- **If the file exists but cannot be read completely:** Inform me of the issue. Continue using professional engineering judgment and applicable project instructions without assuming or inventing the contents of the missing portions.
 
-Do not begin implementation before I approve the plan. Never execute Git commands unless I explicitly request them.
+The personal engineering standards supplement project-specific instructions. Apply both where compatible, and resolve material conflicts according to the applicable instruction hierarchy and the standards' conflict-resolution rules.
 
-Require my explicit approval before deployment, database migrations, database seeding, schema or column changes, and other high-risk operations covered by the standards.
-
-Do not modify the standards document without my explicit instruction and approval.
-
-If the standards file cannot be read completely, inform me before implementation.
+Do not modify the personal engineering standards document unless I explicitly instruct and approve the change.
