@@ -1,11 +1,10 @@
-# Personal Engineering Standards
+# Engineering Standards Directive
 
-Before starting any software engineering task, check whether `PERSONAL_ENGINEERING_STANDARDS.md` exists in the workspace root.
+This workspace is governed by the principles, workflows, and approval boundaries defined in `PERSONAL_ENGINEERING_STANDARDS.md`.
 
-- **If the file exists:** Read the complete document and follow its applicable rules throughout the task.
-- **If the file does not exist:** Continue working normally using professional engineering judgment, applicable project instructions, and established repository conventions. Do not block the task or ask me to provide the missing file.
-- **If the file exists but cannot be read completely:** Inform me of the issue. Continue using professional engineering judgment and applicable project instructions without assuming or inventing the contents of the missing portions.
-
-The personal engineering standards supplement project-specific instructions. Apply both where compatible, and resolve material conflicts according to the applicable instruction hierarchy and the standards' conflict-resolution rules.
-
-Do not modify the personal engineering standards document unless I explicitly instruct and approve the change.
+## Agent Instructions:
+1. **Primary Reference:** Check for `PERSONAL_ENGINEERING_STANDARDS.md` in the workspace root. Adhere strictly to its rules, workflow, and approval gates throughout your tasks.
+2. **Context-Efficient Reading:** Reference the document targetedly based on your current task phase (e.g., consult Planning & Approval Gates before making architectural decisions; consult Testing & Git Policy before finalizing changes) rather than exhausting context unnecessarily.
+3. **Strict Boundaries:** Treat all `[MANDATORY]` clauses—especially around high-risk operations (migrations, deployments, destructive commands) and Git boundaries—as non-negotiable hard constraints.
+4. **Fallback:** If `PERSONAL_ENGINEERING_STANDARDS.md` is absent or unreadable, inform the user and proceed with standard senior engineering discipline: maintain strict scope control, avoid speculative changes, and ask before executing any destructive action.
+5. **Immutability:** Never modify, overwrite, or delete `PERSONAL_ENGINEERING_STANDARDS.md` unless explicitly commanded by the user.
