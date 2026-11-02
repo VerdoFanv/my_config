@@ -45,3 +45,44 @@ psql -h <hostname> -U <username>
 pg_ctl -D "E:\PostgreSQL\12\data" -l logfile start --> start server
 alter system set jit=off;
 ```
+
+## DEBUGING & BENCHMARK
+```
+EXPLAIN (ANALYZE, BUFFERS, COSTS)
+SELECT * FROM "Account" 
+WHERE balance > 100000;
+
+SELECT 
+  pid,
+  now() - query_start AS duration,
+  state,
+  query,
+  wait_event_type,
+  wait_event
+FROM pg_stat_activity
+WHERE state != 'idle' 
+  AND pid != pg_backend_pid()
+ORDER BY duration DESC;
+
+SELECT 
+  schemaname,
+  relname AS table_name,
+  indexrelname AS index_name,
+  idx_scan, -- Berapa kali indeks ini dipakai oleh query
+  pg_size_pretty(pg_relation_size(indexrelid)) AS index_size
+FROM pg_stat_user_indexes
+WHERE idx_scan = 0 -- Belum pernah dipakai sama sekali
+ORDER BY pg_relation_size(indexrelid) DESC;
+
+SELECT 
+  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) * 100 AS cache_hit_ratio
+FROM pg_statio_user_tables;
+
+SELECT 
+  relname AS table_name,
+  pg_size_pretty(pg_total_relation_size(relid)) AS total_size, -- Data + Index
+  pg_size_pretty(pg_relation_size(relid)) AS data_size,        -- Hanya Data
+  pg_size_pretty(pg_indexes_size(relid)) AS index_size         -- Hanya Index
+FROM pg_catalog.pg_statio_user_tables
+ORDER BY pg_total_relation_size(relid) DESC;
+```
