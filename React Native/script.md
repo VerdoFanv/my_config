@@ -2,18 +2,16 @@
 
 ```json
 {
-  "android": "react-native run-android && cd android && ./gradlew --stop && cd ..",
-  "reset": "watchman watch-del-all && cd android && rm -rf .gradle build && ./gradlew clean && ./gradlew --stop && cd ..",
-  "android:report": "cd android && ./gradlew signinReport && ./gradlew --stop && cd ..",
-  "android:release": "react-native run-android --mode=release",
-  "android:apk": "cd android && ./gradlew clean && ./gradlew app:assembleRelease && ./gradlew --stop && cd ..",
-  "android:aab": "cd android && ./gradlew clean && ./gradlew bundleRelease && cd ..",
-  "android:clean": "cd android && ./gradlew clean && cd ..",
-  "android:aab:i": "cd android/app/build/outputs/bundle/release && rm -rf app-release.apks && bundletool build-apks --bundle=app-release.aab --output=app-release.apks && bundletool install-apks --apks=app-release.apks",
-  "android:clean:fix": "rm -rf android/app/build android/.gradle android/app/.cxx && yarn react-native codegen --platform android --outputPath android/app/build/generated/source/codegen && yarn android:clean",
-  "android:log": "npx react-native log-android",
-  "ios": "react-native run-ios",
-  "ios:sync": "cd ios && rm -rf Pods Podfile.lock build && pod install && cd ..",
+  "splash:pad": "python3 scripts/pad-android-splash.py",
+  "android": "expo run:android && cd android && ./gradlew --stop && cd ..",
+  "android:clean": "cd android && ./gradlew --stop && cd .. && find . -type d -name \".cxx\" -prune -exec rm -rf {} + && find node_modules -type d -path \"*/android/build\" -prune -exec rm -rf {} + && rm -rf android/app/build android/build android/.gradle node_modules/.cache",
+  "android:release": "expo run:android --variant release && cd android && ./gradlew --stop && cd ..",
+  "android:aab": "npm run android:clean && cd android && ./gradlew app:bundleRelease && ./gradlew --stop && cd ..",
+  "android:apk": "npm run android:clean && cd android && ./gradlew app:assembleRelease && ./gradlew --stop && cd ..",
+  "android:key": "cd android && ./gradlew signinReport && cd ..",
+  "ios": "expo run:ios",
+  "ios:sync": "npx expo prebuild --platform ios --clean",
+  "ios:release": "expo run:ios --configuration Release"
 }
 ```
 
