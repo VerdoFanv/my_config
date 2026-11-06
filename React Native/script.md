@@ -119,5 +119,5 @@ brew autoremove
 
 # ANDROID FAILED BUILD AUTOLINKING (EXPO)
 ```
-rm -rf android/app/build android/build android/app/.cxx node_modules/.cache && cd android && ./gradlew clean && cd ..
+cd android && ./gradlew --stop && cd .. && rm -rf android/app/build android/build android/.gradle android/app/.cxx node_modules/.cache && find android -type d -name \".cxx\" -exec rm -rf {} + && cd android && ./gradlew clean && cd ..
 ```
