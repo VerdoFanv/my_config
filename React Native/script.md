@@ -27,15 +27,16 @@
   "preview": "eas build -p all --profile preview",
   "update": "eas update --branch preview",
   "start": "expo start -c",
+  "splash:pad": "python3 scripts/pad-android-splash.py",
   "android": "expo run:android && cd android && ./gradlew --stop && cd ..",
-  "android:sync": "npx expo prebuild --platform android --clean",
+  "android:clean": "cd android && ./gradlew --stop && cd .. && find . -type d -name \".cxx\" -prune -exec rm -rf {} + && find node_modules -type d -path \"*/android/build\" -prune -exec rm -rf {} + && rm -rf android/app/build android/build android/.gradle node_modules/.cache",
   "android:release": "expo run:android --variant release && cd android && ./gradlew --stop && cd ..",
-  "android:aab": "cd android && ./gradlew clean && ./gradlew app:bundleRelease && ./gradlew --stop && cd ..",
-  "android:apk": "cd android && ./gradlew clean && ./gradlew app:assembleRelease && ./gradlew --stop && cd ..",
+  "android:aab": "npm run android:clean && cd android && ./gradlew app:bundleRelease && ./gradlew --stop && cd ..",
+  "android:apk": "npm run android:clean && cd android && ./gradlew app:assembleRelease && ./gradlew --stop && cd ..",
+  "android:key": "cd android && ./gradlew signinReport && cd ..",
   "ios": "expo run:ios",
-  "ios:sync": "npx expo prebuild --platform ios --clean && cd ios && pod install && cd ..",
-  "ios:release": "expo run:ios --configuration Release",
-  "ios:buildRelease": "cd ios && echo '🔨 Building iOS Release for Simulator...' && xcodebuild -workspace Jangkau.xcworkspace -scheme Jangkau -configuration Release -sdk iphonesimulator -derivedDataPath ./build clean build 2>&1 | grep -E '(▸|✔|⚠️|❌|Building|Compiling|Linking|Creating|BUILD SUCCEEDED|BUILD FAILED)' && echo '\n✅ Build completed! Installing to simulator...\n' && xcrun simctl install booted ./build/Build/Products/Release-iphonesimulator/Jangkau.app && echo '\n✅ Installed! Launching app...\n' && xcrun simctl launch booted id.jangkau.jangkau && echo '\n🚀 App launched on simulator!' && cd .."
+  "ios:sync": "npx expo prebuild --platform ios --clean",
+  "ios:release": "expo run:ios --configuration Release"
 }
 ```
 
