@@ -115,8 +115,3 @@ yarn cache clean --all
 brew cleanup --prune=all -s
 brew autoremove
 ```
-
-# ANDROID FAILED BUILD AUTOLINKING (EXPO)
-```
-cd android && ./gradlew --stop && cd .. && rm -rf android/app/build android/build android/.gradle android/app/.cxx node_modules/.cache && find android -type d -name \".cxx\" -exec rm -rf {} + && cd android && ./gradlew clean && cd ..
-```
