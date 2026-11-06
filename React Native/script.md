@@ -40,13 +40,6 @@
 }
 ```
 
-# Clean Gradle Global Cache
-```rm -rf ~/.gradle/caches```
-
-# Clean Xcode Cache
-- ```rm -rf ~/Library/Developer/CoreSimulator/Devices/*```
-- ```rm -rf ~/Library/Developer/Xcode/DerivedData/*```
-
 # react native asset (implement fonts)
 ```npx react-native-asset```
 
