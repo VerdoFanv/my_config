@@ -91,28 +91,28 @@ splits {
 
 # CLEAN PROJECT UNUSED
 ```
-rm -rf node_modules android/app/build ios/build ios/Pods && watchman watch-del-all
+rm -rf node_modules android/build android/app/build android/.gradle ios/build ios/Pods && find . -type d -name ".cxx" -prune -exec rm -rf {} + && watchman watch-del-all
 
+pkill -f gradle || true
 rm -rf \
   "$HOME/.gradle/caches" \
+  "$HOME/.gradle/daemon" \
+  "$HOME/.gradle/wrapper/dists" \
   "$HOME/.android/build-cache" \
   "$HOME/.android/cache"
-emulator -list-avds
-avdmanager delete avd -n "NAMA_AVD"
 
 rm -rf \
   "$HOME/Library/Developer/Xcode/DerivedData" \
-  "$HOME/Library/Developer/Xcode/Archives" \
   "$HOME/Library/Developer/Xcode/iOS DeviceSupport" \
   "$HOME/Library/Caches/com.apple.dt.Xcode"
+pod cache clean --all || true
 xcrun simctl delete unavailable
 
-find "$HOME/Project" -type d \( -name node_modules -o -name .next \) -prune -exec rm -rf {} +
+rm -rf "$TMPDIR/metro-*" "$TMPDIR/haste-map-*"
 npm cache clean --force
-rm -rf ~/.npm/_npx
-pod cache clean --all
-yarn cache clean
-brew cleanup
+rm -rf "$HOME/.npm/_npx"
+yarn cache clean --all
+brew cleanup --prune=all -s
 brew autoremove
 ```
 
