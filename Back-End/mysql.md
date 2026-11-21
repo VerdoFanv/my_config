@@ -8,8 +8,11 @@ gzip -dc ~/staging.sql.gz | docker exec -i -e MYSQL_PWD='<pass_db_lokal>' <nama_
   mariadb -u <user_db_lokal> <nama_db_lokal>
 ```
 
-## CREATE DB DOCKER
+## COMMAND MYSQL DOCKER
 ```
 docker exec -i -e MYSQL_PWD='<pass_db_lokal>' <nama_container_mariadb> \
   mariadb -u <user_db_lokal> -e "CREATE DATABASE IF NOT EXISTS <nama_db_lokal> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+docker exec -i -e <nama_container> \
+  mariadb -u <user_db_lokal> -e "SHOW DATABASES;"
 ```
