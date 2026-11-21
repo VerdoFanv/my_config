@@ -1,11 +1,11 @@
 ## BACKUP MYSQL MARIADB FROM SSH 
 ```
-ssh <user_ssh_staging>@<ip_staging> \
-  "MYSQL_PWD='<pass_db_staging>' mysqldump -u <user_db_staging> --single-transaction --routines --triggers --events <nama_db_staging> | gzip -c" \
+ssh USER@IP \
+  "MYSQL_PWD='pass' mysqldump -u root --single-transaction --routines --triggers --events db_name | gzip -c" \
   > ~/backup.sql.gz
 
-gzip -dc ~/staging.sql.gz | docker exec -i -e MYSQL_PWD='<pass_db_lokal>' <nama_container_mariadb> \
-  mariadb -u <user_db_lokal> <nama_db_lokal>
+gzip -dc ~/staging.sql.gz | docker exec -i -e MYSQL_PWD='root' <nama_container_mariadb> \
+  mysql -u root <nama_db_lokal>
 ```
 
 ## MYSQL COMMAND
