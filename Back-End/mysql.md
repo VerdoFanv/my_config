@@ -8,11 +8,24 @@ gzip -dc ~/staging.sql.gz | docker exec -i -e MYSQL_PWD='<pass_db_lokal>' <nama_
   mariadb -u <user_db_lokal> <nama_db_lokal>
 ```
 
+## MYSQL COMMAND
+```
+SHOW DATABASES;
+USE nama_database;
+SHOW FULL TABLES;
+SELECT DATABASE(), USER(), VERSION();
+DESCRIBE nama_tabel;
+SHOW CREATE TABLE nama_tabel\G
+SHOW INDEX FROM nama_tabel;
+SELECT * FROM nama_tabel LIMIT 10;
+SELECT user, host FROM mysql.user;
+SHOW GRANTS;
+SHOW FULL PROCESSLIST;
+
+CREATE DATABASE IF NOT EXISTS nama_database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
 ## COMMAND MYSQL DOCKER
 ```
-docker exec -i -e MYSQL_PWD='<pass_db_lokal>' <nama_container_mariadb> \
-  mariadb -u <user_db_lokal> -e "CREATE DATABASE IF NOT EXISTS <nama_db_lokal> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-
-docker exec -i -e <nama_container> \
-  mariadb -u <user_db_lokal> -e "SHOW DATABASES;"
+docker exec -it <nama_container> mariadb -u <user_db_lokal> -p
 ```
