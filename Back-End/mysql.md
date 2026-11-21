@@ -27,5 +27,5 @@ CREATE DATABASE IF NOT EXISTS nama_database CHARACTER SET utf8mb4 COLLATE utf8mb
 
 ## COMMAND MYSQL DOCKER
 ```
-docker exec -it <nama_container> mariadb -u <user_db_lokal> -p
+docker exec -it <nama_container> mysql -u root -p
 ```
