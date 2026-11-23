@@ -27,6 +27,11 @@ ls
 nano
 ```
 
+## SSH
+```
+ssh-copy-id -i ~/.ssh/id_ed25519.pub user@IP
+```
+
 ## user
 ```
 adduser
