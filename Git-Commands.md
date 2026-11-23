@@ -3,6 +3,7 @@
 ## login
 - ```git config --global user.name 'your name'```
 - ```git config --global user.email 'you@example.com'```
+- ```git config user.email "email@gmail.com"```
 
 ## branch
 - ```git branch```
