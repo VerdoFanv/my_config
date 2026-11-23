@@ -13,24 +13,25 @@ docker compose up -d
 
 docker compose down
 docker compose down -v
-docker compose logs -f <service_name>
+docker compose logs -f service_name
 docker compose stop
-docker compose -p <service_name> down -v
+docker compose -p service_name down -v
 
 docker ps -a
 docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
-docker logs -f <container_name>
+docker logs -f container_name
 docker exec -it
 
-docker stop <container_name>
-docker start <container_name>
-docker restart <container_name>
+docker stop container_name
+docker start container_name
+docker restart container_name
 
 docker system prune
 docker stats
 docker volume ls
+docker inspect -f container_name
 
-docker compose exec -T <service_name> sh -c 'cd /app && tar czf - uploads' > uploads.tgz
+docker compose exec -T service_name sh -c 'cd /app && tar czf - uploads' > uploads.tgz
 ```
 
 ## DB BACKUP
