@@ -29,7 +29,7 @@ docker restart container_name
 docker system prune
 docker stats
 docker volume ls
-docker inspect -f container_name
+docker inspect container_name
 
 docker compose exec -T service_name sh -c 'cd /app && tar czf - uploads' > uploads.tgz
 ```
