@@ -18,7 +18,6 @@ docker compose stop
 docker compose -p service_name down -v
 
 docker ps -a
-docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 docker logs -f container_name
 docker exec -it
 
