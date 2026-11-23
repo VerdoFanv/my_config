@@ -30,3 +30,17 @@ DROP DATABASE IF EXISTS nama_database;
 ```
 docker exec -it <nama_container> mysql -u root -p
 ```
+
+## FIX TIMESTAMP AT DOCKER
+```
+command: --explicit-defaults-for-timestamp=1
+docker compose up -d mysql
+docker exec -i -e MYSQL_PWD='root' serbasepeda-express-mysql-1 \
+  mysql -u root -e "SHOW VARIABLES LIKE 'explicit_defaults_for_timestamp';"
+
+docker exec -i -e MYSQL_PWD='root' serbasepeda-express-mysql-1 \
+  mysql -u root -e "UPDATE ss_v3_prod._prisma_migrations SET rolled_back_at = NOW(3) WHERE migration_name = '20261021042617_flash_sale' AND finished_at IS NULL;"
+docker restart serbasepeda-express-api-1
+docker logs -f serbasepeda-express-api-1
+```
+
