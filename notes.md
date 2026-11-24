@@ -22,19 +22,17 @@
 
 ## Security
 
-- ORM / Non concated query SQL
-- CORS with helmet
-- Validation by ZOD/JOI
-- using TLS 1.3/1.2
-- OAuth2 for login system
-- Short Lived JWT & Refresh token rotation
-- Access always check user id / roles
-- private network for database & API Gateway
-- Secret manager (AWS Secret Manager / GCP Secret Manager)
-- Automated Security Scanner di CI/CD (SonarQube, Snyk, atau GitHub Dependabot)
-- WAF & Rate Limiting (Cloudflare / AWS WAF)
-- PII Masking & Audit Log (Hide sensitive data for log)
-- mTLS (microservice)
+Sembunyikan IP Asli & Kunci Edge: Taruh server di balik WAF/CDN (seperti Cloudflare) dan batasi port 80/443 agar hanya menerima trafik dari IP Edge tersebut.
+
+Firewall Default-Deny & SSH Ketat: Tutup semua port kecuali yang diperlukan, wajibkan SSH key (tanpa login password/root), dan pastikan port database/Redis (3306, 6379) tidak pernah terekspos ke 0.0.0.0 (waspada bypass iptables Docker).
+
+TLS Modern & Hardening Reverse Proxy: Paksa HTTPS (TLS 1.2/1.3 + HSTS), pasang rate limit, batasi ukuran body request, aktifkan timeout anti-Slowloris, timpa header X-Forwarded-*, dan matikan identitas versi server (server_tokens off).
+
+Isolasi Jaringan Internal & Least-Privilege DB: Taruh database/cache di jaringan internal Docker tanpa akses internet (internal: true) dan hubungkan aplikasi memakai user database non-root dengan hak akses minimum.
+
+Runtime Container Terkunci: Jalankan aplikasi sebagai user non-root, aktifkan read-only filesystem, cabut Linux capabilities (cap_drop: [ALL]), dan batasi kuota RAM/CPU agar tidak memicu OOM crash pada host.
+
+Amankan Header & Cache Response Keluar: Pasang security headers (X-Content-Type-Options: nosniff, frame-ancestors 'none', Referrer-Policy), paksa Cache-Control: no-store, private untuk endpoint privat, dan tampilkan halaman error generik (tanpa stack trace).
 
 ## Performance
 
