@@ -10,6 +10,7 @@ sudo sh get-docker.sh
 docker compose up --build -d
 docker compose up --force-recreate -d
 docker compose up -d
+docker compose restart
 
 docker compose down
 docker compose down -v
