@@ -2,17 +2,29 @@
 
 ## IMPORT&EXPORT DOCKER
 ```
+# 1. Export: jika DB terinstal di server
 ssh USER@IP \
-  "set -o pipefail; PGPASSWORD='pass' pg_dump -U postgres --no-owner --no-acl db_name | gzip -c" \
+  "set -o pipefail; PGPASSWORD='pass' pg_dump -U postgres --no-owner --no-acl DB_NAME | gzip -c" \
   > backup.sql.gz
 
-gzip -dc staging.sql.gz | docker exec -i -e PGPASSWORD='pass' nama_container_postgres \
-  psql -U postgres -v ON_ERROR_STOP=1 -d nama_db_lokal
+# 2. Export: jika DB remote / managed
+ssh USER@IP \
+  "set -o pipefail; PGPASSWORD='pass' pg_dump -h DB_HOST -p DB_PORT -U DB_USER --no-owner --no-acl DB_NAME | gzip -c" \
+  > backup.sql.gz
 
-docker exec -i -e PGPASSWORD='pass' nama_container_postgres psql -U postgres -d DB_name -t -A -c \
+# 3. Import: selalu hapus DB lama & timpa ulang dari nol
+docker exec -i -e PGPASSWORD='pass' CONTAINER_NAME \
+  psql -U postgres -d postgres \
+  -c "DROP DATABASE IF EXISTS \"DB_NAME\" WITH (FORCE);" \
+  -c "CREATE DATABASE \"DB_NAME\";" && \
+gzip -dc backup.sql.gz | docker exec -i -e PGPASSWORD='pass' CONTAINER_NAME \
+  psql -U postgres -v ON_ERROR_STOP=1 -d DB_NAME
+
+# 4. Cek jumlah baris seluruh tabel (tanpa perlu tahu nama tabel/kolom)
+docker exec -i -e PGPASSWORD='pass' CONTAINER_NAME psql -U postgres -d DB_NAME -t -A -c \
   "SELECT format('SELECT %L AS tabel, COUNT(*) AS total FROM %I UNION ALL', table_name, table_name) FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE' ORDER BY table_name" \
   | sed '$ s/ UNION ALL/;/' \
-  | docker exec -i -e PGPASSWORD='pass' nama_container_postgres psql -U postgres -d DB_name
+  | docker exec -i -e PGPASSWORD='pass' CONTAINER_NAME psql -U postgres -d DB_NAME
 ```
 
 ## install in ubuntu
