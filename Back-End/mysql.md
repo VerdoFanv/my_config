@@ -14,10 +14,10 @@ docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME \
 gzip -dc backup.sql.gz | docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME \
   mysql -u root DB_NAME
 
-docker exec -i -e MYSQL_PWD='root' nama_container_mariadb mysql -u root -N -e \
-  "SELECT CONCAT('SELECT \"', table_name, '\" AS tabel, COUNT(*) AS total FROM DB_name.', table_name, ' UNION ALL') FROM information_schema.tables WHERE table_schema = 'DB_name'" \
+docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME mysql -u root -N -e \
+  "SELECT CONCAT('SELECT \"', table_name, '\" AS tabel, COUNT(*) AS total FROM DB_NAME.', table_name, ' UNION ALL') FROM information_schema.tables WHERE table_schema = 'DB_NAME'" \
   | sed '$ s/ UNION ALL/;/' \
-  | docker exec -i -e MYSQL_PWD='root' nama_container_mariadb mysql -u root -t
+  | docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME mysql -u root -t
 ```
 
 ## MYSQL COMMAND
