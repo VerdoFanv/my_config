@@ -169,12 +169,6 @@ mv ~/.pnp.cjs ~/.pnp.cjs.disabled
 rm -rf .react-email
 ```
 
-## MYSQL IMPORT/EXPORT
-```
-mysql -h HOST -P PORT -uroot -pPASSWORD DATABASE_NAME < dev.sql
-mysqldump -h HOST -P PORT -uroot -proot DATABASE_NAME > dev.sql
-```
-
 ## GO COMMAND
 ```
 du -sh "$(go env GOMODCACHE)"
