@@ -4,8 +4,8 @@ ssh USER@IP \
   "MYSQL_PWD='pass' mysqldump -u root --single-transaction --routines --triggers --events db_name | gzip -c" \
   > backup.sql.gz
 
-gzip -dc staging.sql.gz | docker exec -i -e MYSQL_PWD='root' <nama_container_mariadb> \
-  mysql -u root <nama_db_lokal>
+gzip -dc staging.sql.gz | docker exec -i -e MYSQL_PWD='root' nama_container_mariadb \
+  mysql -u root nama_db_lokal
 ```
 
 ## MYSQL COMMAND
