@@ -9,6 +9,8 @@ ssh USER@IP \
   "set -o pipefail; MYSQL_PWD='pass' mysqldump -h DB_HOST -P DB_PORT -u DB_USER --single-transaction --no-tablespaces DB_NAME | gzip -c" \
   > backup.sql.gz
 
+docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME \
+  mysql -u root -e "DROP DATABASE IF EXISTS \`DB_NAME\`; CREATE DATABASE \`DB_NAME\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" && \
 gzip -dc backup.sql.gz | docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME \
   mysql -u root DB_NAME
 
