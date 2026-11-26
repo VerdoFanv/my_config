@@ -9,8 +9,8 @@ ssh USER@IP \
   "set -o pipefail; MYSQL_PWD='pass' mysqldump -h DB_HOST -P DB_PORT -u DB_USER --single-transaction --no-tablespaces DB_NAME | gzip -c" \
   > backup.sql.gz
 
-gzip -dc staging.sql.gz | docker exec -i -e MYSQL_PWD='root' nama_container_mariadb \
-  mysql -u root nama_db_lokal
+gzip -dc backup.sql.gz | docker exec -i -e MYSQL_PWD='pass' CONTAINER_NAME \
+  mysql -u root DB_NAME
 
 docker exec -i -e MYSQL_PWD='root' nama_container_mariadb mysql -u root -N -e \
   "SELECT CONCAT('SELECT \"', table_name, '\" AS tabel, COUNT(*) AS total FROM DB_name.', table_name, ' UNION ALL') FROM information_schema.tables WHERE table_schema = 'DB_name'" \
