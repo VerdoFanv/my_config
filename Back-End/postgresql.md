@@ -1,5 +1,20 @@
 # POSTGRESQL
 
+## IMPORT&EXPORT DOCKER
+```
+ssh USER@IP \
+  "set -o pipefail; PGPASSWORD='pass' pg_dump -U postgres --no-owner --no-acl db_name | gzip -c" \
+  > backup.sql.gz
+
+gzip -dc staging.sql.gz | docker exec -i -e PGPASSWORD='pass' nama_container_postgres \
+  psql -U postgres -v ON_ERROR_STOP=1 -d nama_db_lokal
+
+docker exec -i -e PGPASSWORD='pass' nama_container_postgres psql -U postgres -d DB_name -t -A -c \
+  "SELECT format('SELECT %L AS tabel, COUNT(*) AS total FROM %I UNION ALL', table_name, table_name) FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE' ORDER BY table_name" \
+  | sed '$ s/ UNION ALL/;/' \
+  | docker exec -i -e PGPASSWORD='pass' nama_container_postgres psql -U postgres -d DB_name
+```
+
 ## install in ubuntu
 ```
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
