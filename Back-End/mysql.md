@@ -6,6 +6,11 @@ ssh USER@IP \
 
 gzip -dc staging.sql.gz | docker exec -i -e MYSQL_PWD='root' nama_container_mariadb \
   mysql -u root nama_db_lokal
+
+docker exec -i -e MYSQL_PWD='root' nama_container_mariadb mysql -u root -N -e \
+  "SELECT CONCAT('SELECT \"', table_name, '\" AS tabel, COUNT(*) AS total FROM DB_name.', table_name, ' UNION ALL') FROM information_schema.tables WHERE table_schema = 'DB_name'" \
+  | sed '$ s/ UNION ALL/;/' \
+  | docker exec -i -e MYSQL_PWD='root' nama_container_mariadb mysql -u root -t
 ```
 
 ## MYSQL COMMAND
