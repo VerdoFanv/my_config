@@ -31,6 +31,8 @@ docker volume ls
 docker inspect container_name
 
 docker compose exec -T service_name sh -c 'cd /app && tar czf - uploads' > uploads.tgz
+docker system df
+docker image prune -f
 ```
 
 ## DB BACKUP
