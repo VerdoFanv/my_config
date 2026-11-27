@@ -41,3 +41,8 @@ Amankan Header & Cache Response Keluar: Pasang security headers (X-Content-Type-
 - Caching by Redis
 - Nginx / Reverse Proxy
 - Search indexing (meilisearch/elasticsearch)
+
+## CHECK SSL URL
+```
+curl -vI https://domain.com 2>&1 | grep -A 6 "Server certificate"
+```
