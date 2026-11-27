@@ -44,5 +44,5 @@ Amankan Header & Cache Response Keluar: Pasang security headers (X-Content-Type-
 
 ## CHECK SSL URL
 ```
-curl -vI https://domain.com 2>&1 | grep -A 6 "Server certificate"
+curl -vkI https://domain.com
 ```
