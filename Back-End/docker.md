@@ -8,6 +8,10 @@ sudo sh get-docker.sh
 ## COMMAND
 ```
 docker pull node:24-alpine
+docker compose run --rm --no-deps \
+  -v "$(pwd)/src:/app/src:ro" \
+  -v "$(pwd)/prisma:/app/prisma:ro" \
+  SERVICE_NAME npm run db:seed
 
 docker compose up --build -d
 docker compose up --force-recreate -d
