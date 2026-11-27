@@ -7,6 +7,8 @@ sudo sh get-docker.sh
 
 ## COMMAND
 ```
+docker pull node:24-alpine
+
 docker compose up --build -d
 docker compose up --force-recreate -d
 docker compose up -d
@@ -33,7 +35,9 @@ docker inspect container_name
 
 docker compose exec -T service_name sh -c 'cd /app && tar czf - uploads' > uploads.tgz
 docker system df
-docker image prune -f
+docker images
+docker image prune -a
+docker builder prune
 ```
 
 ## DB BACKUP
