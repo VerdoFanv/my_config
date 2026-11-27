@@ -37,7 +37,7 @@ docker compose exec -T service_name sh -c 'cd /app && tar czf - uploads' > uploa
 docker system df
 docker images
 docker image prune -a
-docker builder prune
+docker builder prune -a
 ```
 
 ## DB BACKUP
